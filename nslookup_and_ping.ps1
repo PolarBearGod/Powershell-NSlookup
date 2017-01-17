@@ -12,7 +12,7 @@ write-Host "Performing NSLookUp..."
             Write-Progress -Activity "Performing nslookups" -CurrentOperation "Working on IP: $address (IP $i of $TotalIPs)" -Status "$percentdonerounded% complete" -PercentComplete $percentdone
             ## End progress bar
             try {
-                Resolve-DnsName -Name ($address) | Select NameHost,Name
+                Resolve-DnsName -Name ($address) | Select NameHost,Name | Format-List
                 }
                 catch {
                     Write-host "$address was not found. $_" -ForegroundColor Green
